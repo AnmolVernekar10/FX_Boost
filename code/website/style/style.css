@@ -1,0 +1,140 @@
+/* CSS Snippet from W3schools: https://www.w3schools.com/howto/howto_css_contact_form.asp */
+/* Style inputs with type="text", select elements and textareas */
+body
+{
+  color: white;
+}
+.css-3lsdob:active, .css-3lsdob:visited, .css-3lsdob:hover {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 36px;
+}
+.css-ik0uxo:active, .css-ik0uxo:visited, .css-ik0uxo:hover {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 36px;
+}
+.css-pkbazv {
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: table-cell;
+}
+
+
+.css-17lntkn {
+  color: rgb(231 231 239 / 94%);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: table-cell;
+}
+.css-fblp2m {
+    vertical-align: middle;
+    overflow: hidden;
+    color: inherit;
+    fill: currentcolor;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 1.25rem;
+    width: 1.25rem;
+    color: white;
+    height: 1.25rem;
+}
+.css-17lntkn {
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: table-cell;
+}
+
+.css-pkbazv {
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: table-cell;
+}input[type=message], textarea {
+  /* width: 100%; Full width */
+  position: relative;
+  top: -130px;
+  width: 50%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #cccccc; /* Gray border */
+  border-radius: 10px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical/* Allow the user to vertically resize the textarea (not horizontally) */;
+  
+}
+input[type=email]{
+  /* width: 100%; Full width */
+  position: relative;
+  left: 15%;
+  top: -135px;
+  width: 50%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 10px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical/* Allow the user to vertically resize the textarea (not horizontally) */
+}
+input[type=text] {
+  /* width: 100%; Full width */
+  position: relative;
+  top: -135px;
+  width: 50%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 10px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical/* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+
+/* Style the submit button with a specific background color etc */
+button[type=submit] {
+  position: relative;
+  background-color: #04AA6D;
+  top: -190px;
+  left: 13%;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+
+
+body {
+  color: #fff;
+}
+
+div.row-widget.stRadio > div {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+div.row-widget.stSelectbox > div[role="select"] > label[data-baseweb="radio"] > div:first-child {
+  background-color: blue;
+}
+/* Hide Streamlit Branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
