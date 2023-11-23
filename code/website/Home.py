@@ -1,29 +1,14 @@
 import streamlit as st
-import pandas as pd
 import requests
-import pickle
 import base64
 from streamlit_lottie import st_lottie
-import streamlit as st
-from PIL import Image
 import sys
 sys.path.append('E:\\Anmol_Projects\\FX_Project\\code\\website')
 
-
-# # ************************************************ Pickling of Model ************************************************
-# # In Pickling of Model : rb--> Load the model from pickle
-# #                        lb--> Saving the model with pickle
-
-# model_name='model/Model.pkl'
-# with open(model_name,'rb') as file:
-#     model=pickle.load(file)
-
 # # *******************************************************************************************************************
-
-
-
 # Here we are setting the page configuration: page icon, page title, layout type
-st.set_page_config(page_title="FX_Exchange", page_icon="🫀" , layout="wide")
+st.set_page_config(page_title="FX_Exchange", page_icon="🪙" , layout="wide")
+# # *******************************************************************************************************************
 
 
 
@@ -38,12 +23,20 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
 # *******************************************************************************************************************
 
 
 
 # *******************************************************************************************************************
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header{visibility: hidden;}
+</style>
+
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # We are using this section, to add background-image to the website
 def get_base64(bin_file):
@@ -65,8 +58,6 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# set_background('E:/Heart_Disease_Project/Code/Website/2923472.webp')
-# set_background('E:/Anmol_Projects/FX_Project/code/website/background.jpg')
 set_background('E:/Anmol_Projects/FX_Project/code/bg1.png')
 # *******************************************************************************************************************
 
@@ -83,13 +74,6 @@ def load_lottieurl(url):
     return r.json()
 
 lottie_encoding=load_lottieurl("https://lottie.host/6a73bccf-1edf-4dc6-8e14-c06d80bcf7aa/1vtngsI2fN.json")
-# def load_lottieurl(url):
-# lottie = """
-# <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-# <lottie-player src="https://lottie.host/0ec1f945-d5c7-4242-acb8-aed934124f09/yoeQjUP5a8.json"  background="transparent"  speed="5"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
-# """
-# st.components.v1.html(lottie, width=300, height=300)
-
 # *******************************************************************************************************************
 
 
@@ -103,7 +87,8 @@ def local_css():
 
 
 
-
+# *******************************************************************************************************************
+# Code For Home Page
 def webcode():    
     local_css()
     with st.container():
@@ -134,6 +119,7 @@ def webcode():
             original_title = '<p style=" position:relative;top:-120px;color:White; font-size: 32px;"><b><u>Contact Us: </u></b></p>'
             st.markdown(original_title, unsafe_allow_html=True)
 
+            # contact form for User query
             contact_form="""
             <form action="https://formsubmit.co/comderboi@gmail.com" method="POST">
             <input type="hidden" name="_captcha" value="false">
@@ -147,9 +133,10 @@ def webcode():
         with right_column:
             st.empty()
                 
-        with right_col:
+        with right_col:#For animation
             st_lottie(lottie_encoding,height=350,key="coding")
 
+    #Moving the web page content
     st.markdown(
     """
     <style>
@@ -160,6 +147,7 @@ def webcode():
     """,
     unsafe_allow_html=True,
 )
+# *******************************************************************************************************************
 
 
 if __name__ == '__main__':

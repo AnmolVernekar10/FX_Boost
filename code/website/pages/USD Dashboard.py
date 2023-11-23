@@ -1,22 +1,27 @@
 import streamlit as st
 import pandas as pd
-import requests
-import pickle
 import base64
-from streamlit_lottie import st_lottie
 import streamlit as st
 from PIL import Image
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
 
-st.set_page_config(page_title="FX_Exchange", page_icon="🫀" , layout="centered")
+# # *******************************************************************************************************************
+# Here we are setting the page configuration: page icon, page title, layout type
+st.set_page_config(page_title="FX_Exchange", page_icon="🪙" , layout="centered")
+# # *******************************************************************************************************************
 
+
+# # *******************************************************************************************************************
+# Function for Header
 def header(url):
     st.markdown(f'<p style="background-color:transparent;color:white;font-size:50px;font-weight:bolder;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 
 header("<u>USD Analysis</u>")
+# # *******************************************************************************************************************
 
+# # *******************************************************************************************************************
 # Here we are Styling the sidebar of the website
 st.markdown("""
 <style>
@@ -55,8 +60,9 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
+# # *******************************************************************************************************************
 
-
+# # *******************************************************************************************************************
 # We are using this section, to add background-image to the website
 def get_base64(bin_file):
     with open(bin_file, 'rb') as f:
@@ -86,8 +92,8 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# set_background('E:/Heart_Disease_Project/Code/Website/2923472.webp')
 set_background('E:/Anmol_Projects/FX_Project/code/bg1.png')
+# # *******************************************************************************************************************
 
 
 # Used for importing the Css file ( style.css)
@@ -109,7 +115,8 @@ max_date = df['Date'].max().date()  # Convert to date type
 default_start_date = min_date
 default_end_date = max_date
 
-
+# # *******************************************************************************************************************
+# Code for Bigger font
 st.markdown("""
 <style>
 .big-font {
@@ -119,19 +126,20 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-
-# Streamlit app
-
+# # *******************************************************************************************************************
 
 
+# # *******************************************************************************************************************
 # Date range input from the user
 st.markdown("<div style='font-size: 20px; color: white;'>Start Date</div>", unsafe_allow_html=True)
-
 start_date = st.date_input('', min_value=min_date, max_value=max_date, value=default_start_date)
-
 st.markdown("<div style='font-size: 20px; color: white;'>End Date</div>", unsafe_allow_html=True)
 end_date = st.date_input('', min_value=min_date, max_value=max_date, value=default_end_date)
+# # *******************************************************************************************************************
 
+
+# # *******************************************************************************************************************
+# For dropdown in currency field
 currency_columns = [col for col in df.columns if col not in ['Date']]
 if currency_columns:  # Check if currency_columns is not empty
     default_currency= currency_columns[0]  # Set the default currency1 to the first one in the list
@@ -141,18 +149,22 @@ if currency_columns:  # Check if currency_columns is not empty
 else:
     st.warning("No currency columns found in the DataFrame.")
     selected_currency1, selected_currency2 = None, None
+# # *******************************************************************************************************************
 
-# st.markdown("<div style='font-size: 20px; color: white;'>Enter the Currency</div>", unsafe_allow_html=True)
-# # st.markdown('<p class="big-font">Enter the Currency</p>', unsafe_allow_html=True)
-# curr = st.text_input('',value='')
 st.markdown('')
 
-
+# # *******************************************************************************************************************
+# Time interval selectbox
 st.markdown("<div style='font-size: 20px; color: white;'>Duration</div>", unsafe_allow_html=True)
-# time_interval = st.radio("Select Time Interval", ["Weekly", "Monthly", "Yearly"])
 time_interval = st.selectbox("", ["Weekly", "Monthly","Quarterly","Yearly"])
+# # *******************************************************************************************************************
+
+# # *******************************************************************************************************************
+# Button
 st.markdown("")
 update_button = st.button("Update Chart")
+# # *******************************************************************************************************************
+
 # Convert start_date and end_date to datetime objects
 start_date = pd.to_datetime(start_date)
 end_date = pd.to_datetime(end_date)
@@ -197,55 +209,10 @@ if update_button and curr!="":
     st.markdown("")
     st.markdown("")
     st.markdown('<p class="big-font">Chart</p>', unsafe_allow_html=True)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig)#Plot Chart
 
-    max_value = resampled_df[curr].max()
+    max_value = resampled_df[curr].max() #Max value
     st.markdown(f'<p class="big-font"><b><u>Maximum {curr} Value</u></b>: {max_value}</p>', unsafe_allow_html=True)
-    max_value = resampled_df[curr].min()
+    max_value = resampled_df[curr].min() #Min value
     st.markdown(f'<p class="big-font"><u><b>Minimum {curr} Value</u></b>: {max_value}</p>', unsafe_allow_html=True)
-
-
-# import plotly.graph_objects as go
-
-# import pandas as pd
-# df = pd.read_csv('D:\\NT Hackathon\\NTData3.csv')
-
-# fig = go.Figure([go.Scatter(x=df['Date'], y=df['INR'])])
-# fig.show()
-
-# # app.py
-# import streamlit as st
-# import plotly.express as px
-# import pandas as pd
-
-# def main():
-#     st.title("Streamlit App with Plotly")
-
-#     # Upload CSV file through Streamlit
-#     uploaded_file = st.file_uploader("D:\NT Hackathon", type="csv")
-
-#     if uploaded_file is not None:
-#         # Read the CSV file into a DataFrame
-#         df = pd.read_csv(uploaded_file)
-
-#         # Display the DataFrame
-#         st.write("Uploaded CSV Data:")
-#         st.write(df)
-
-#         # Plot using Plotly Express
-#         st.write("Plotting Graph:")
-#         fig = px.scatter(df, x='X', y='Y', title='Scatter Plot')
-#         st.plotly_chart(fig)
-
-# if __name__ == "__main__":
-#     main()
-
-# # import plotly.express as px  
-  
-  
-# # # Creating the Figure instance 
-# # fig = px.line(x=[1, 2, 3], y=[1, 2, 3])  
-  
-# # # showing the plot 
-# # fig.show()
 
