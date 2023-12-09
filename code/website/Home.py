@@ -1,6 +1,6 @@
 import streamlit as st
-import requests
-import base64
+import requests #url lottie
+import base64 
 from streamlit_lottie import st_lottie
 import sys
 sys.path.append('E:\\Anmol_Projects\\FX_Project\\code\\website')
@@ -39,10 +39,10 @@ header{visibility: hidden;}
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # We are using this section, to add background-image to the website
-def get_base64(bin_file):
+def get_base64(bin_file):#accepts in binary
     with open(bin_file, 'rb') as f:
         data = f.read()
-    return base64.b64encode(data).decode()
+    return base64.b64encode(data).decode() ##returns content encoded in base64 format
 
 
 def set_background(png_file):

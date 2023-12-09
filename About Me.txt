@@ -1,0 +1,1 @@
+Command for Execution: streamlit run Home.py

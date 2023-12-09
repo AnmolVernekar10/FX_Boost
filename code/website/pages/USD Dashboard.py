@@ -1,11 +1,8 @@
 import streamlit as st
 import pandas as pd
 import base64
-import streamlit as st
 from PIL import Image
-import streamlit as st
 import plotly.graph_objects as go
-import pandas as pd
 
 # # *******************************************************************************************************************
 # Here we are setting the page configuration: page icon, page title, layout type
@@ -148,7 +145,7 @@ if currency_columns:  # Check if currency_columns is not empty
     curr= st.selectbox('Select Currency 1', currency_columns, index=currency_columns.index(default_currency))
 else:
     st.warning("No currency columns found in the DataFrame.")
-    selected_currency1, selected_currency2 = None, None
+    selected_curr= None
 # # *******************************************************************************************************************
 
 st.markdown('')
