@@ -92,20 +92,20 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_background('E:/Anmol_Projects/FX_Project/code/bg1.png')
+set_background('E:/Anmol_Projects/FX_Project_(CurrencyAnalysis)/code/bg1.png')
 # # *******************************************************************************************************************
 
 
 # # *******************************************************************************************************************
 # Used for importing the Css file ( style.css)
 def local_css():
-    with open("E:/Anmol_Projects/FX_Project/code/website/style/style.css") as f:
+    with open("E:/Anmol_Projects/FX_Project_(CurrencyAnalysis)/code/website/style/style.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 # # *******************************************************************************************************************
 
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv('E:/Anmol_Projects/FX_Project/data/NTData3.csv')
+df = pd.read_csv('E:/Anmol_Projects/FX_Project_(CurrencyAnalysis)/data/NTData3.csv')
 
 
 # Convert the 'Date' column to datetime format

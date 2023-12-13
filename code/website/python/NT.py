@@ -14,7 +14,7 @@ from datetime import datetime, timedelta
 # In[2]:
 
 
-mydata = pd.read_csv("E:/Anmol_Projects/FX_Project/data/NTData3.csv")
+mydata = pd.read_csv("E:/Anmol_Projects/FX_Project_(CurrencyAnalysis)/data/NTData3.csv")
 
 
 # In[3]:
